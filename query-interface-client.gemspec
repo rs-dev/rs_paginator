@@ -21,4 +21,6 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.summary = "RadarServices (Bootstrap) Paginator"
   s.license = "ISC"
+
+  s.add_runtime_dependency(%q<i18n>)
 end

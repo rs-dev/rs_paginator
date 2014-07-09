@@ -1,0 +1,7 @@
+en:
+  rs_paginator:
+    page_info:
+      empty: No entries found
+      one: Displaying one entry
+      one_page: Displaying %{total} entries
+      other: Displaying entries %{from} - %{to} of %{total}
