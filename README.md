@@ -25,5 +25,5 @@ collection = RsPaginator::Collection(objects, 1, 10, 27)
 
 And use it inside your view.
 ```ruby
-RsPaginator::Paginator.new(collection, self).render
+paginate(collection)
 ```
