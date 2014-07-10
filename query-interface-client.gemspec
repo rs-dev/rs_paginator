@@ -9,7 +9,10 @@ Gem::Specification.new do |s|
   s.version = RsPaginator::VERSION
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Sebastian Weiss <sebastian.weiss@radarservices.com", "Martin Natano <martin.natano@radarservices.com"]
+  s.authors = [
+    "Sebastian Weiss <sebastian.weiss@radarservices.com",
+    "Martin Natano <martin.natano@radarservices.com",
+  ]
   s.date = Date.today.strftime
   s.description = "RadarServices (Bootstrap) Paginator"
   s.email = "gems [a] radarservices [d] com"
