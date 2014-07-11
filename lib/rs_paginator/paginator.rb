@@ -5,11 +5,12 @@ module RsPaginator
     include ActionView::Helpers::TagHelper
     include ActionView::Helpers::OutputSafetyHelper
     
-    def initialize(objects, context)
+    def initialize(objects, context, extra_params: {})
       @objects = objects
       @context = context
       @total_pages = objects.total_pages
       @current_page = objects.page
+      @extra_params = extra_params
     end
 
     def render
@@ -20,10 +21,14 @@ module RsPaginator
 
   private
 
+    def params(h = {})
+      @context.params.merge(@extra_params).merge(h)
+    end
+
     def prev_link
       first = @current_page == 1
       content_tag(:li, class: first ? 'disabled' : nil) do
-        url = first ? '#' : @context.params.merge(page: @current_page - 1)
+        url = first ? '#' : params(page: @current_page - 1)
         @context.link_to(raw('&laquo;'), url)
       end
     end
@@ -31,7 +36,7 @@ module RsPaginator
     def next_link
       last = @current_page == @total_pages
       content_tag(:li, class: last ? 'disabled' : nil) do
-        url = last ? '#' : @context.params.merge(page: @current_page + 1)
+        url = last ? '#' : params(page: @current_page + 1)
         @context.link_to(raw('&raquo;'), url)
       end
     end
@@ -43,7 +48,7 @@ module RsPaginator
     def page_link(i)
       current = i == @current_page
       content_tag(:li, class: current ? 'active' : nil) do
-        url = current ? '#' : @context.params.merge(page: i)
+        url = current ? '#' : params(page: i)
         @context.link_to(i, url)
       end
     end
