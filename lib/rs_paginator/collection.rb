@@ -1,3 +1,5 @@
+require 'delegate'
+
 module RsPaginator
   class Collection < SimpleDelegator
 

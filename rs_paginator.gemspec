@@ -26,4 +26,5 @@ Gem::Specification.new do |s|
   s.license = "ISC"
 
   s.add_runtime_dependency(%q<i18n>)
+  s.add_runtime_dependency(%q<actionview>)
 end

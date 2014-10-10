@@ -1,3 +1,5 @@
+require 'action_view'
+
 module RsPaginator
   class PageInfo
 
