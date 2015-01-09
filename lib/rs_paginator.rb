@@ -4,4 +4,4 @@ I18n.load_path += Dir[File.expand_path(File.join(File.dirname(__FILE__), '..', '
 require 'rs_paginator/collection'
 require 'rs_paginator/page_info'
 require 'rs_paginator/paginator'
-require 'rs_paginator/railtie' if defined?(Rails)
+require 'rs_paginator/railtie' if defined?(Rails::Railtie)
