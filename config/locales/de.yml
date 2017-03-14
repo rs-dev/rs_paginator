@@ -1,0 +1,7 @@
+de:
+  rs_paginator:
+    page_info:
+      empty: Keine Einträge gefunden
+      one: 1 Eintrag angezeigt
+      one_page: "%{total} Einträge angezeigt"
+      other: "Eintrag %{from} - %{to} von %{total} angezeigt"
