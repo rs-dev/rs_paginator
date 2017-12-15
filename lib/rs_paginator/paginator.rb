@@ -24,7 +24,9 @@ module RsPaginator
   private
 
     def params(h = {})
-      @context.params.merge(@extra_params).merge(h)
+      context_params = @context.params
+      context_params = context_params.to_unsafe_h if context_params.respond_to?(:to_unsafe_h)
+      context_params.merge(@extra_params).merge(h)
     end
 
     def prev_link
