@@ -1,0 +1,29 @@
+image: "${CI_REGISTRY}/devops/container-ruby/ruby-ci:v1"
+
+stages:
+  - security
+  - publishing
+
+variables:
+  PROXY: http://rubygems.prod.radar.lan
+  ENV: test
+
+before_script:
+  - bundle install --jobs=$(nproc) --path=~/gems "${FLAGS[@]}"
+
+bundle_audit:
+  stage: security
+  tags:
+    - kubernetes
+  script:
+    - bundle exec bundle-audit check --update
+  allow_failure: true
+
+artifactory_publish:
+  stage: publishing
+  tags:
+    - kubernetes
+  only:
+    - tags
+  script:
+    - ./publish.sh
