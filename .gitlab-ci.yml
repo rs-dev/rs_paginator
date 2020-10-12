@@ -1,8 +1,14 @@
+include:
+  - project: 'devops/gitlab-ci-common'
+    file: 'gems/build_gem.yml'
+
+
 image: "${CI_REGISTRY}/devops/container-ruby/ruby-ci:v1"
 
 stages:
   - security
-  - publishing
+  - build_gem
+  - upload_gem
 
 variables:
   PROXY: http://rubygems.prod.radar.lan
@@ -19,11 +25,3 @@ bundle_audit:
     - bundle exec bundle-audit check --update
   allow_failure: true
 
-artifactory_publish:
-  stage: publishing
-  tags:
-    - kubernetes
-  only:
-    - tags
-  script:
-    - ./publish.sh
