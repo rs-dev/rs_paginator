@@ -1,7 +1,6 @@
 include:
-  - project: 'devops/gitlab-ci-common'
-    file: 'gems/build_gem.yml'
-
+  - project: 'development/ci-common'
+    file: 'build_gem.yml'
 
 image: "${CI_REGISTRY}/devops/container-ruby/ruby-ci:v1"
 
@@ -24,4 +23,10 @@ bundle_audit:
   script:
     - bundle exec bundle-audit check --update
   allow_failure: true
+
+build_gem:
+  extends: .build_gem
+
+upload_gem:
+  extends: .upload_gem
 
