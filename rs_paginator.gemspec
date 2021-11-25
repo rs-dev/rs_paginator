@@ -32,4 +32,6 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency(%q<actionview>, '~>5.2')
 
   s.add_development_dependency(%q<bundler-audit>)
+  s.add_development_dependency(%q<rspec>)
+  s.add_development_dependency(%q<rspec_junit_formatter>)
 end
