@@ -29,5 +29,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_runtime_dependency(%q<i18n>)
-  s.add_runtime_dependency(%q<actionview>)
+  s.add_runtime_dependency(%q<actionview>, '~>5.2')
+
+  s.add_development_dependency(%q<bundler-audit>)
 end

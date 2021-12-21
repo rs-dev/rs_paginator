@@ -4,3 +4,5 @@ SOURCES = {
 }.freeze
 
 source SOURCES[:default]
+
+gemspec
